@@ -6,7 +6,7 @@ from markitdown import MarkItDown
 from mdformat import text
 from pymupdf4llm import to_markdown
 
-type StrategyReplace = Dict[str, str]
+StrategyReplace = Dict[str, str]
 """Dict representing a replacement strategy where keys are substrings to be replaced and values are their replacements."""
 
 DEFAULT_STRATEGY_REPLACE: StrategyReplace = {

@@ -6,12 +6,30 @@ readme = "README.md"
 authors = [
     { name = "Athroniaeth", email = "pierre.chaumont@hotmail.fr" }
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.10"
 dependencies = [
     "markitdown[docx]>=0.1.3",
     "mdformat>=0.7.22",
     "pymupdf4llm>=0.0.27",
 ]
+keywords = ["pdf", "docx", "markdown", "converter", "document-processing"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Markup :: Markdown",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/Athroniaeth/docmd"
+Repository = "https://github.com/Athroniaeth/docmd"
+Issues = "https://github.com/Athroniaeth/docmd/issues"
 
 [build-system]
 requires = ["hatchling"]
@@ -30,3 +48,7 @@ filterwarnings = [
     "ignore:.*SwigPyObject.*:DeprecationWarning",
     "ignore:.*swigvarlink.*:DeprecationWarning",
 ]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
