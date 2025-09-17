@@ -22,3 +22,11 @@ dev = [
     "pytest>=8.4.2",
     "ruff>=0.13.0",
 ]
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules"
+filterwarnings = [
+    "ignore:.*SwigPyPacked.*:DeprecationWarning",
+    "ignore:.*SwigPyObject.*:DeprecationWarning",
+    "ignore:.*swigvarlink.*:DeprecationWarning",
+]
