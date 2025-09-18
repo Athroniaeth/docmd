@@ -45,18 +45,19 @@ uv sync
 ### Python API
 
 ```python
-from docmd import pdf_to_md, docx_to_md
+from docmd import Converter
 
+converter = Converter()
 # Convert PDF
 with open("data/cv.pdf", "rb") as f:
     pdf_content = f.read()
-    markdown_pdf = pdf_to_md(pdf_content)
+    markdown_pdf = converter.pdf_to_md(pdf_content)
     print(markdown_pdf)
 
 # Convert DOCX
 with open("data/cv.docx", "rb") as f:
     docx_content = f.read()
-    markdown_docx = docx_to_md(docx_content)
+    markdown_docx = converter.docx_to_md(docx_content)
     print(markdown_docx)
 ```
 
@@ -65,10 +66,15 @@ with open("data/cv.docx", "rb") as f:
 The library uses a configurable recursively replacement strategy to clean the Markdown (for `docx`):
 
 ```python
+from docmd import Converter
 from docmd.core import apply_strategy_replace
 
-text = "hello\n\n\n\nworld"
 strategy = {"\n\n\n": "\n\n"}
+
+# Will apply the `apply_strategy_replace` function with the given strategy
+converter = Converter(strategy=strategy)
+
+text = "hello\n\n\n\nworld"
 print(apply_strategy_replace(text, strategy))  # "hello\n\nworld"
 ```
 
