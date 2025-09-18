@@ -14,9 +14,4 @@ def test_import_docmd_public_api():
     """Ensure importing docmd works and exposes the public API."""
     module = importlib.import_module("docmd")
 
-    assert hasattr(module, "pdf_to_md")
-    assert hasattr(module, "docx_to_md")
-
-    # The functions should be callable
-    assert callable(module.pdf_to_md)
-    assert callable(module.docx_to_md)
+    assert hasattr(module, "Converter")
