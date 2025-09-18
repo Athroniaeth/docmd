@@ -37,20 +37,30 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
-    "pytest>=8.4.2",
-    "ruff>=0.13.0",
     "ty>=0.0.1a20",
+    "ruff>=0.13.0",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
 ]
 
 [project.scripts]
 lint = "docmd:_lint"
 
 [tool.pytest.ini_options]
-addopts = "--doctest-modules"
+addopts = "--doctest-modules --cov=src --cov-report=term-missing --cov-report=html"
+testpaths = [
+    "src",
+    "tests",
+]
 filterwarnings = [
     "ignore:.*SwigPyPacked.*:DeprecationWarning",
     "ignore:.*SwigPyObject.*:DeprecationWarning",
     "ignore:.*swigvarlink.*:DeprecationWarning",
+]
+
+[tool.coverage.run]
+omit = [
+    "src/*/__init__.py",
 ]
 
 [tool.ruff]
