@@ -42,6 +42,9 @@ dev = [
     "ty>=0.0.1a20",
 ]
 
+[project.scripts]
+lint = "docmd:_lint"
+
 [tool.pytest.ini_options]
 addopts = "--doctest-modules"
 filterwarnings = [
