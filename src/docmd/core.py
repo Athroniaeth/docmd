@@ -204,12 +204,7 @@ class Converter:
             str: Raw Markdown extracted from the PDF (not post-formatted).
         """
         with fitz.open(stream=stream, filetype="pdf") as doc:
-            md = to_markdown(
-                doc,
-                ignore_graphics=True,
-                ignore_code=True,
-                ignore_alpha=True,
-            )
+            md = to_markdown(doc)
             return md
 
     def docx_to_md(self, stream: bytes) -> str:
